@@ -391,10 +391,12 @@ th {
 
 .rep-na {
     color: #cbd5e1;
-    font-style: italic;
-    font-size: 0.75rem;
+    font-size: 1.2rem;
+    /* Larger icon size */
     display: block;
     text-align: center;
+    cursor: help;
+    /* Indicate tooltip available */
 }
 
 /* Modal / Popup Styling */
