@@ -1,0 +1,542 @@
+:root {
+    --primary-teal: #00796b;
+    /* Darker teal for headers/buttons */
+    --light-teal: #00897b;
+    --accent-pink: #ffccbc;
+    /* Light salmon for 'Change' background */
+    --light-blue: #e0f7fa;
+    /* For Total Amount background */
+    --bg-gray: #f5f5f5;
+    --border-color: #ddd;
+    --text-color: #333;
+    --white: #ffffff;
+    --danger-red: #d32f2f;
+    --sidebar-width: 60px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-gray);
+    color: var(--text-color);
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--white);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.sidebar-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #666;
+    font-size: 1.2rem;
+}
+
+.sidebar-icon:hover {
+    background-color: var(--bg-gray);
+    border-radius: 5px;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.search-area {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    background: var(--white);
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    padding: 5px;
+}
+
+.btn-icon {
+    background: none;
+    border: 1px solid var(--primary-teal);
+    color: var(--primary-teal);
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.btn-primary {
+    background-color: var(--primary-teal);
+    color: var(--white);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.product-entry {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.product-input {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-right: auto;
+    /* Push the stock text to the right if needed, or keep it as is with space-between */
+}
+
+/* Product Table */
+.table-container {
+    flex: 1;
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    /* Keeping a subtle bottom border for readability, or remove if strictly no border */
+    padding: 8px;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+th {
+    background-color: #f9f9f9;
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-color);
+    /* distinctive header bottom */
+}
+
+/* Footer Actions */
+.footer-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-action {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    color: var(--white);
+    background-color: var(--primary-teal);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* Right Panel */
+.right-panel {
+    width: 350px;
+    background-color: var(--white);
+    border-left: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.panel-header {
+    background-color: var(--primary-teal);
+    color: var(--white);
+    padding: 12px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.summary-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 15px;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.bg-teal-dark {
+    background-color: var(--primary-teal);
+    color: var(--white);
+}
+
+.bg-pink {
+    background-color: var(--accent-pink);
+    color: #000;
+}
+
+.bg-light-blue {
+    background-color: var(--light-blue);
+    color: #000;
+}
+
+.input-section {
+    padding: 15px 15px 5px 15px;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.input-row label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-control {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 0.9rem;
+    outline: none;
+    background-color: #fff;
+    width: 60%;
+}
+
+.totals-table {
+    padding: 5px 15px;
+    margin-bottom: 10px;
+}
+
+.totals-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.total-amount-row {
+    font-size: 1.4rem;
+    padding: 10px 15px;
+}
+
+.payment-section {
+    padding: 15px;
+    flex-grow: 1;
+    /* Allow this to take available space */
+}
+
+.cash-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid #eee;
+    margin-bottom: 15px;
+}
+
+.cash-row label {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.cash-row .form-control {
+    width: 60%;
+    border: 1px solid #ddd;
+}
+
+.payment-entry-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.payment-type-select {
+    flex: 1;
+    width: auto;
+    /* Override specific width */
+}
+
+.payment-amount-input {
+    width: 100px;
+    /* specific width for amount */
+}
+
+.btn-add-payment {
+    background: none;
+    border: none;
+    color: var(--light-teal);
+    /* Slightly lighter teal for icon */
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.payment-list-header {
+    display: flex;
+    background-color: #fff;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.75rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.print-section {
+    margin-top: auto;
+}
+
+.btn-print {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-teal);
+    color: var(--white);
+    border: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Rep Column Styles - New Addition */
+.rep-btn {
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #64748b;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.rep-btn:hover {
+    border-color: var(--primary-teal);
+    color: var(--primary-teal);
+    background: #e0f2f1;
+}
+
+.rep-na {
+    color: #cbd5e1;
+    font-style: italic;
+    font-size: 0.75rem;
+    display: block;
+    text-align: center;
+}
+
+/* Modal / Popup Styling */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(4px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: var(--white);
+    width: 480px;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    animation: popIn 0.2s ease-out;
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: var(--primary-teal);
+}
+
+.staff-list {
+    max-height: 350px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.staff-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 1px solid transparent;
+}
+
+.staff-item:hover {
+    background: #f1f5f9;
+    border-color: var(--border-color);
+}
+
+.avatar {
+    width: 42px;
+    height: 42px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    margin-right: 15px;
+    color: #475569;
+}
+
+.staff-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.staff-name {
+    font-weight: 600;
+    font-size: 15px;
+    color: #333;
+}
+
+.staff-sub {
+    font-size: 12px;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.id-label {
+    color: var(--primary-teal);
+    font-weight: 700;
+}
+
+.close-footer {
+    padding: 10px;
+    text-align: center;
+    background: #f8fafc;
+}
+
+.cancel-link {
+    color: #ef4444;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Selected Rep Button Style - Minimal Green Icon */
+.rep-btn.selected {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    cursor: default;
+    /* Or pointer if clicking reveals details */
+}
+
+.rep-btn.selected i {
+    color: var(--primary-teal);
+    /* Green/Teal */
+    font-size: 1.4em;
+    margin: 0;
+    display: inline-block;
+}
+
+.rep-btn.selected:hover i {
+    color: #004d40;
+    /* Darker green on hover */
+}

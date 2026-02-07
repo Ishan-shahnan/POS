@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akij iBOS POS Demo</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Using Font Awesome for icons (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Left Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-icon"><i class="fas fa-home"></i></div>
+        <div class="sidebar-icon"><i class="fas fa-th-large"></i></div>
+        <div class="sidebar-icon"><i class="fas fa-truck"></i></div>
+        <div class="sidebar-icon"><i class="fas fa-key"></i></div>
+        <div class="sidebar-icon"><i class="fas fa-user"></i></div>
+        <div class="sidebar-icon"><i class="fas fa-print"></i></div>
+        <div class="sidebar-icon"><i class="fas fa-trash-alt"></i></div>
+        <div class="sidebar-icon"><i class="fas fa-file-invoice"></i></div>
+        <div class="sidebar-icon"><i class="fas fa-tag"></i></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="top-bar">
+            <span><strong>MANAGERIUM</strong> | Counter: Ishan Demo 1 | User Name: Ishan Demo</span>
+        </div>
+
+        <div class="search-area">
+            <div class="input-group">
+                <input type="text" placeholder="Enter Customer No (Alt+M)...">
+            </div>
+            <button class="btn-icon"><i class="fas fa-user-plus"></i></button>
+            <button class="btn-icon"><i class="fas fa-search"></i></button>
+            <span>Points : 0 | Name : | </span>
+            <div style="flex: 1;"></div>
+            <button class="btn-primary">Point Redeem</button>
+        </div>
+
+        <div class="product-entry">
+            <input type="text" class="product-input" placeholder="Search Product...">
+            <span style="color: #888;">Stock: 0 Unit.</span>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>SL</th>
+                        <th>Barcode</th>
+                        <th>Item Name</th>
+                        <th style="text-align: center;">Rep <i class="fas fa-user" style="font-size: 0.8em;"></i></th>
+                        <th style="text-align: right;">Qty</th>
+                        <th style="text-align: right;">Rate</th>
+                        <th style="text-align: right;">SD</th>
+                        <th style="text-align: right;">Discount</th>
+                        <th style="text-align: right;">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01</td>
+                        <td>880123456789</td>
+                        <td>A4 Paper Rim</td>
+                        <td style="text-align: center;"><span class="rep-na">No Attribution Required</span></td>
+                        <td class="text-right">5</td>
+                        <td class="text-right">550.00</td>
+                        <td class="text-right">0.00</td>
+                        <td class="text-right">0.00</td>
+                        <td class="text-right">2,750.00</td>
+                    </tr>
+                    <tr>
+                        <td>02</td>
+                        <td>456789012345</td>
+                        <td>HP Laserjet Printer</td>
+                        <td style="text-align: center;"><button class="rep-btn" id="btn-2" title="Assign Sales Person"
+                                onclick="openStaffModal(2)"><i class="fas fa-user-plus"></i></button></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">24,500.00</td>
+                        <td class="text-right">0.00</td>
+                        <td class="text-right">0.00</td>
+                        <td class="text-right">24,500.00</td>
+                    </tr>
+                    <tr>
+                        <td>03</td>
+                        <td>789012345678</td>
+                        <td>Logitech MX Master 3S</td>
+                        <td style="text-align: center;"><button class="rep-btn" id="btn-3" title="Assign Sales Person"
+                                onclick="openStaffModal(3)"><i class="fas fa-user-plus"></i></button></td>
+                        <td class="text-right">2</td>
+                        <td class="text-right">9,800.00</td>
+                        <td class="text-right">0.00</td>
+                        <td class="text-right">0.00</td>
+                        <td class="text-right">19,600.00</td>
+                    </tr>
+                    <tr>
+                        <td>04</td>
+                        <td>123456789012</td>
+                        <td>Samsung T7 SSD 1TB</td>
+                        <td style="text-align: center;"><button class="rep-btn" id="btn-4" title="Assign Sales Person"
+                                onclick="openStaffModal(4)"><i class="fas fa-user-plus"></i></button></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">12,500.00</td>
+                        <td class="text-right">0.00</td>
+                        <td class="text-right">500.00</td>
+                        <td class="text-right">12,000.00</td>
+                    </tr>
+                    <tr>
+                        <td>05</td>
+                        <td>998877665544</td>
+                        <td>HDMI Cable 3m</td>
+                        <td style="text-align: center;"><span class="rep-na">No Attribution Required</span></td>
+                        <td class="text-right">3</td>
+                        <td class="text-right">450.00</td>
+                        <td class="text-right">0.00</td>
+                        <td class="text-right">0.00</td>
+                        <td class="text-right">1,350.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer-actions">
+            <button class="btn-action"><i class="fas fa-pause"></i> Hold Invoice (F9)</button>
+            <button class="btn-action"><i class="fas fa-history"></i> Recall Invoice (F10)</button>
+            <button class="btn-action"><i class="fas fa-exchange-alt"></i> Exchange (F5)</button>
+            <button class="btn-action"><i class="fas fa-undo"></i> Return</button>
+            <button class="btn-action"><i class="fas fa-lock"></i> Lock Session (Alt + L)</button>
+        </div>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="right-panel">
+        <div class="panel-header">Akij iBOS POS Demo</div>
+
+        <div class="summary-section">
+            <div class="summary-row bg-teal-dark">
+                <span>Paid Amount</span>
+                <span>0.00</span>
+            </div>
+            <div class="summary-row bg-pink">
+                <span>Change</span>
+                <span>0.00</span>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <div class="input-row">
+                <label>Special Discount (%)</label>
+                <select class="form-control">
+                    <option>None</option>
+                </select>
+            </div>
+            <div class="input-row">
+                <label>Invoice Notes</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+
+        <div class="totals-table">
+            <div class="totals-row">
+                <span>Total Bill</span>
+                <span>0.00</span>
+            </div>
+            <div class="totals-row">
+                <span>Total SD</span>
+                <span>0.00</span>
+            </div>
+            <div class="totals-row">
+                <span>Total Discount</span>
+                <span>0.00</span>
+            </div>
+            <div class="totals-row">
+                <span>Other Discount</span>
+                <span>0.00</span>
+            </div>
+        </div>
+
+        <div class="summary-row bg-light-blue total-amount-row">
+            <span>Total Amount</span>
+            <span>0.00</span>
+        </div>
+
+        <div class="payment-section">
+            <div class="cash-row">
+                <label>Cash Amount</label>
+                <input type="text" value="0" class="form-control text-right">
+            </div>
+
+            <div class="payment-entry-row">
+                <select class="form-control payment-type-select">
+                    <option>Payment Type</option>
+                </select>
+                <input type="text" value="0.00" class="form-control payment-amount-input text-right">
+                <button class="btn-add-payment"><i class="fas fa-plus-circle"></i></button>
+            </div>
+
+            <div class="payment-list-header">
+                <span style="flex: 2;">Pay Type</span>
+                <span style="flex: 1; border-left: 1px solid #ddd; padding-left: 5px;">Amount</span>
+                <span style="flex: 1; border-left: 1px solid #ddd; padding-left: 5px;">Ref</span>
+                <span style="width: 30px;"></span>
+            </div>
+
+            <div class="payment-list-body">
+                <!-- Payment items will go here -->
+            </div>
+        </div>
+
+        <div class="print-section">
+            <button class="btn-print">Print &nbsp;&nbsp; 0</button>
+        </div>
+    </div>
+    <!-- Staff Selection Modal -->
+    <div class="modal-overlay" id="staffModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 style="margin: 0 0 15px 0; font-size: 18px;">Find Sales Person</h3>
+                <input type="text" class="search-input" id="staffSearch"
+                    placeholder="Search by Name, ID, or Designation..." onkeyup="filterStaff()">
+            </div>
+
+            <div class="staff-list" id="staffList">
+                <div class="staff-item" onclick="selectStaff('Ishan Demo', '101', 'Senior Executive')">
+                    <div class="avatar">ID</div>
+                    <div class="staff-info">
+                        <span class="staff-name">Ishan Demo</span>
+                        <span class="staff-sub">ID: <span class="id-label">101</span> • Senior Executive</span>
+                    </div>
+                </div>
+                <div class="staff-item" onclick="selectStaff('Arif Ahmed', '105', 'Sales Lead')">
+                    <div class="avatar" style="background:#ecfdf5; color:#059669;">AA</div>
+                    <div class="staff-info">
+                        <span class="staff-name">Arif Ahmed</span>
+                        <span class="staff-sub">ID: <span class="id-label">105</span> • Sales Lead</span>
+                    </div>
+                </div>
+                <div class="staff-item" onclick="selectStaff('Sara Khan', '109', 'Branch Manager')">
+                    <div class="avatar" style="background:#fff7ed; color:#ea580c;">SK</div>
+                    <div class="staff-info">
+                        <span class="staff-name">Sara Khan</span>
+                        <span class="staff-sub">ID: <span class="id-label">109</span> • Branch Manager</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="close-footer">
+                <span class="cancel-link" onclick="closeModal()">Close Window</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let activeItem = null;
+
+        function openStaffModal(itemId) {
+            activeItem = itemId;
+            document.getElementById('staffModal').style.display = 'flex';
+            document.getElementById('staffSearch').focus();
+        }
+
+        function closeModal() {
+            document.getElementById('staffModal').style.display = 'none';
+            document.getElementById('staffSearch').value = '';
+            filterStaff(); // Reset list
+        }
+
+        function filterStaff() {
+            let val = document.getElementById('staffSearch').value.toLowerCase();
+            let items = document.getElementsByClassName('staff-item');
+            for (let item of items) {
+                item.style.display = item.innerText.toLowerCase().includes(val) ? "flex" : "none";
+            }
+        }
+
+        function selectStaff(name, id, designation) {
+            const btn = document.getElementById('btn-' + activeItem);
+
+            // Render only the icon (green check user)
+            btn.innerHTML = `<i class="fas fa-user-check"></i>`;
+
+            // Set hover text (tooltip)
+            btn.title = `Assigned to: ${name} [${id}]`;
+
+            // Add selected class for styling
+            btn.classList.add('selected');
+
+            // Reset inline styles
+            btn.style = "";
+
+            console.log(`Report Data: Item ${activeItem} sold by ${name} (${id})`);
+            closeModal();
+        }
+
+        // Keyboard support: Close modal on Escape
+        window.onkeydown = function (event) {
+            if (event.key === "Escape") closeModal();
+        };
+    </script>
+</body>
+
+</html>
